@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Firebase Sample Survey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script>
+    var config = {
+    apiKey: "Your API Key",
+    authDomain: "yourprojectname.firebaseapp.com",
+    databaseURL: "https://yourprojectname.firebaseio.com",
+    storageBucket: "yourprojectname.appspot.com",
+    messagingSenderId: "yourMessagingSenderId",
+  };
+  firebase.initializeApp(config);
+      
+  var database = firebase.database();
+    database.ref('survey').once('value', function(snapshot){
+        if(snapshot.exists()){
+            var content = '';
+            snapshot.forEach(function(data){
+                var val = data.val();
+                content +='<tr>';       
+                content += '<td>' + val.q1 + '</td>';
+                content += '<td>' + val.q2 + '</td>';
+                content += '<td>' + val.q3 + '</td>';
+                content += '<td>' + val.q4 + '</td>';
+                content += '<td>' + val.q5 + '</td>';
+                content += '<td>' + val.q6 + '</td>';
+                content += '<td>' + val.q7 + '</td>';
+                content += '<td>' + val.q8 + '</td>';
+                content += '<td>' + val.q9 + '</td>';
+                content += '<td>' + val.contact + '</td>';
+                content += '<td>' + val.comment + '</td>';
+                content += '</tr>';
+            });
+            $('#table1').append(content);
+        }
+    });
+  </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1></h1>
+      <p>Canteen Survey Results:</p>
+      <table class="table table-striped" id="table1">
+    		<thead>
+    			<tr>
+    		<th>Q1</th>
+            <th>Q2</th>
+            <th>Q3</th>
+            <th>Q4</th>
+            <th>Q5</th>
+            <th>Q6</th>
+            <th>Q7</th>
+            <th>Q8</th>
+            <th>Q9</th>
+            <th>Name</th>
+            <th>Comment</th>
+    				
+    			</tr>
+    		</thead>
+    		<tbody>
+    	
+    	</table>
+    </div>
+    
+  </body>
+</html>
