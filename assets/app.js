@@ -1,8 +1,8 @@
-  var config = {
-    apiKey: "AIzaSyBz13eirmEOGD1uXOZwf6tKGnEsjfwsUFo",
-    authDomain: "platformtechproject.firebaseapp.com",
-    databaseURL: "https://platformtechproject.firebaseio.com",
-    storageBucket: "platformtechproject.appspot.com",
-    messagingSenderId: "1065758005439",
+var config = {
+    apiKey: "Your API Key",
+    authDomain: "yourprojectname.firebaseapp.com",
+    databaseURL: "https://yourprojectname.firebaseio.com",
+    storageBucket: "yourprojectname.appspot.com",
+    messagingSenderId: "yourMessagingSenderId",
   };
   firebase.initializeApp(config);
